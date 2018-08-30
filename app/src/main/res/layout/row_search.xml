@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/tab_height"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="2dp"
+    tools:context="com.jrodiz.sucursalesbr.ui.frag.IconFragment">
+
+    <ImageView
+        android:id="@+id/img_sucursal"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/icon_height"
+        android:layout_weight="1"
+        android:src="@drawable/pin1b" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="2dp"
+            android:paddingRight="6dp"
+            android:gravity="center_vertical"
+            android:paddingTop="6dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="2dp"
+            android:paddingRight="6dp"
+            android:gravity="center_vertical"
+            android:paddingTop="6dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textStyle="italic" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

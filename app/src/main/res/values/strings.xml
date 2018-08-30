@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SucursalesBR</string>
+    <string name="title_activity_sucursales">SucursalesBR</string>
+    <string name="no_network">No network connection</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sucursal">Sucursal</string>
+    <string name="cajero">Cajero</string>
+    <string name="title_activity_search">Búsqueda de sucursal</string>
+    <string name="title_activity_sucursal_detail">Detalle sucursal</string>
+</resources>
