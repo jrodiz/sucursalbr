@@ -31,19 +31,19 @@
 
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
-    <com.getbase.floatingactionbutton.FloatingActionsMenu
+    <com.getbase.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         fab:fab_icon="@drawable/address"
-        fab:fab_colorNormal="@color/gray1"
-        fab:fab_colorPressed="@color/colorPrimaryDark"
+        fab:fab_colorNormal="@color/colorPrimaryDark"
+        fab:fab_colorPressed="@color/gray1"
         android:layout_marginBottom="80dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp">
-    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    </com.getbase.floatingactionbutton.FloatingActionButton>
 
 
 </RelativeLayout>

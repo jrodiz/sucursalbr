@@ -18,10 +18,12 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.jrodiz.business.model.Sucursal;
 import com.jrodiz.common.Constants;
-import com.jrodiz.sucursalesbr.R;
 import com.jrodiz.sucursalesbr.AppConstants;
+import com.jrodiz.sucursalesbr.R;
 import com.jrodiz.sucursalesbr.ui.OnFragmentInteractionListener;
 import com.jrodiz.sucursalesbr.utils.ContextUtils;
+
+import java.util.Objects;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
@@ -104,7 +106,7 @@ public class SucursalFragment extends Fragment implements ISucursalDrawer {
         mIcon.setImageResource(mSucursal.isSucursal() ? R.drawable.pin1 : R.drawable.pin2);
         mTvName.setText(mSucursal.getNombre());
 
-        Glide.with(getContext())
+        Glide.with(Objects.requireNonNull(getContext()))
                 .load(mSucursal.getUrlFoto())
                 .apply(new RequestOptions()
                         .placeholder(R.drawable.placeholder_image))
@@ -120,7 +122,7 @@ public class SucursalFragment extends Fragment implements ISucursalDrawer {
         mTvPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //TODO: launch dial... UPDATE: not all data is in format and some are empty
             }
         });
     }

@@ -27,6 +27,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -34,15 +35,14 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.jrodiz.business.ctrl.LocationAwareCtrl;
 import com.jrodiz.business.ctrl.SucursalCtrl;
 import com.jrodiz.business.model.Sucursal;
 import com.jrodiz.common.Constants;
-import com.jrodiz.sucursalesbr.R;
 import com.jrodiz.sucursalesbr.AppConstants;
+import com.jrodiz.sucursalesbr.R;
 import com.jrodiz.sucursalesbr.ui.custom.DetailsTransition;
 import com.jrodiz.sucursalesbr.ui.frag.IconFragment;
 import com.jrodiz.sucursalesbr.ui.frag.SucursalFragment;
@@ -50,6 +50,7 @@ import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -61,8 +62,7 @@ public class SucursalesMapActivity extends FragmentActivity
         SucursalCtrl.IRptSucursal,
         GoogleMap.OnMarkerClickListener,
         OnFragmentInteractionListener,
-        SlidingUpPanelLayout.PanelSlideListener,
-        FloatingActionsMenu.OnFloatingActionsMenuUpdateListener {
+        SlidingUpPanelLayout.PanelSlideListener {
 
     private static final String TAG = SucursalesMapActivity.class.getSimpleName();
     private static final int ICON_FRAGMENT = 1;
@@ -78,7 +78,7 @@ public class SucursalesMapActivity extends FragmentActivity
     private final List<Sucursal> mSucursales = new ArrayList<>();
     private SlidingUpPanelLayout mPanelView;
     private Sucursal mCurrrentSucursal;
-    private FloatingActionsMenu mFab;
+    private FloatingActionButton mFab;
     private Location mUserLocation;
 
     @Override
@@ -101,17 +101,21 @@ public class SucursalesMapActivity extends FragmentActivity
         mPanelView.addPanelSlideListener(this);
         resetPanelView();
 
-        mLiveLocation.observe(this, new Observer<Location>() {
-            @Override
-            public void onChanged(@Nullable Location location) {
-                mUserLocation = location;
-            }
-        });
+        mLiveLocation.observe(this, location -> mUserLocation = location);
         mController.requestSucursales();
         startMonitingLocation();
 
         mFab = findViewById(R.id.fab);
-        mFab.setOnFloatingActionsMenuUpdateListener(this);
+        mFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent searchAct = new Intent(SucursalesMapActivity.this, SearchActivity.class);
+                Bundle p = new Bundle();
+                p.putParcelable(AppConstants.KEY_LOCATION, mUserLocation);
+                searchAct.putExtras(p);
+                startActivityForResult(searchAct, AppConstants.RQST_CODE_SEARCH);
+            }
+        });
     }
 
     private void resetPanelView() {
@@ -224,7 +228,7 @@ public class SucursalesMapActivity extends FragmentActivity
     public boolean onMarkerClick(Marker marker) {
         mCurrrentSucursal = (Sucursal) marker.getTag();
 
-        setSlideFragment(SucursalFragment.newInstance(mCurrrentSucursal));
+        setSlideFragment(SucursalFragment.newInstance(Objects.requireNonNull(mCurrrentSucursal)));
         mPanelView.setTouchEnabled(true);
         mPanelView.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
 
@@ -296,24 +300,14 @@ public class SucursalesMapActivity extends FragmentActivity
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == AppConstants.RQST_CODE_SEARCH && mFab != null) {
-            mFab.collapse();
-        }
-    }
-
-    @Override
-    public void onMenuExpanded() {
-        Intent searchAct = new Intent(this, SearchActivity.class);
-        Bundle p = new Bundle();
-        p.putParcelable(AppConstants.KEY_LOCATION, mUserLocation);
-        searchAct.putExtras(p);
-        startActivityForResult(searchAct, AppConstants.RQST_CODE_SEARCH);
-    }
-
-    @Override
-    public void onMenuCollapsed() {
-
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        if (requestCode == AppConstants.RQST_CODE_SEARCH && mFab != null) {
+//            mFab.collapse();
+//        }
+//    }
+//
+//    @Override
+//    public void onMenuExpanded() {
+//    }
 }

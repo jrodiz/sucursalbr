@@ -3,7 +3,6 @@
     <string name="title_activity_sucursales">SucursalesBR</string>
     <string name="no_network">No network connection</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sucursal">Sucursal</string>
     <string name="cajero">Cajero</string>
     <string name="title_activity_search">Búsqueda de sucursal</string>
@@ -16,8 +15,5 @@
     <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
     <string name="wrong_credentals">Incorrect credentials</string>
 </resources>

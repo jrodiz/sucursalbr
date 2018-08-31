@@ -1,7 +1,5 @@
 package com.jrodiz.sucursalesbr;
 
-import com.jrodiz.sucursalesbr.BuildConfig;
-
 public final class AppConstants {
 
     private static final String PACKAGE = BuildConfig.APPLICATION_ID;

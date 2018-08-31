@@ -12,8 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jrodiz.business.model.Sucursal;
-import com.jrodiz.sucursalesbr.R;
 import com.jrodiz.sucursalesbr.AppConstants;
+import com.jrodiz.sucursalesbr.R;
 import com.jrodiz.sucursalesbr.ui.SucursalDetailActivity;
 
 import java.lang.ref.WeakReference;

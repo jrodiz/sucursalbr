@@ -15,8 +15,8 @@ import android.widget.EditText;
 
 import com.jrodiz.business.ctrl.SucursalCtrl;
 import com.jrodiz.business.model.Sucursal;
-import com.jrodiz.sucursalesbr.R;
 import com.jrodiz.sucursalesbr.AppConstants;
+import com.jrodiz.sucursalesbr.R;
 import com.jrodiz.sucursalesbr.ui.adapter.RvSearchAdapter;
 import com.jrodiz.sucursalesbr.utils.ContextUtils;
 

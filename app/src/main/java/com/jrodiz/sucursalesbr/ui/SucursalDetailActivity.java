@@ -6,8 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.jrodiz.business.model.Sucursal;
-import com.jrodiz.sucursalesbr.R;
 import com.jrodiz.sucursalesbr.AppConstants;
+import com.jrodiz.sucursalesbr.R;
 import com.jrodiz.sucursalesbr.ui.frag.SucursalFragment;
 import com.jrodiz.sucursalesbr.utils.ContextUtils;
 
