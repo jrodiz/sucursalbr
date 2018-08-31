@@ -101,7 +101,7 @@ public class SucursalFragment extends Fragment implements ISucursalDrawer {
     @Override
     public void updateSucursal(Sucursal data) {
         mSucursal = data;
-        mIcon.setImageResource(mSucursal.isSucursal() ? R.drawable.pin1b : R.drawable.pin2b);
+        mIcon.setImageResource(mSucursal.isSucursal() ? R.drawable.pin1 : R.drawable.pin2);
         mTvName.setText(mSucursal.getNombre());
 
         Glide.with(getContext())

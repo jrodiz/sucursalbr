@@ -183,8 +183,8 @@ public class SucursalesMapActivity extends FragmentActivity
             int pxWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, r.getInteger(R.integer.pin_size_width), r.getDisplayMetrics());
             int pxHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, r.getInteger(R.integer.pin_size_height), r.getDisplayMetrics());
 
-            BitmapDrawable sDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.pin1b);
-            BitmapDrawable cDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.pin2b);
+            BitmapDrawable sDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.pin1);
+            BitmapDrawable cDrawable = (BitmapDrawable) getResources().getDrawable(R.drawable.pin2);
             Bitmap bs = sDrawable.getBitmap();
             Bitmap bc = cDrawable.getBitmap();
             mSucursalPin = BitmapDescriptorFactory.fromBitmap(Bitmap.createScaledBitmap(bs, pxWidth, pxHeight, false));
@@ -288,7 +288,11 @@ public class SucursalesMapActivity extends FragmentActivity
     public void onPanelStateChanged(View panel, SlidingUpPanelLayout.PanelState previousState, SlidingUpPanelLayout.PanelState newState) {
         if (previousState == SlidingUpPanelLayout.PanelState.DRAGGING
                 && newState == SlidingUpPanelLayout.PanelState.COLLAPSED) {
+            mFab.setVisibility(View.VISIBLE);
             resetPanelView();
+        } else if (previousState == SlidingUpPanelLayout.PanelState.COLLAPSED
+                && newState == SlidingUpPanelLayout.PanelState.DRAGGING) {
+            mFab.setVisibility(View.INVISIBLE);
         }
     }
 

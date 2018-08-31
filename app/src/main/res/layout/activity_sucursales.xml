@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        fab:fab_icon="@drawable/baseline_search_white_24"
+        fab:fab_icon="@drawable/address"
         fab:fab_colorNormal="@color/gray1"
         fab:fab_colorPressed="@color/colorPrimaryDark"
         android:layout_marginBottom="80dp"

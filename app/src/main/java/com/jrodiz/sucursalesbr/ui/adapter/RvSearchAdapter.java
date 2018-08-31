@@ -49,7 +49,7 @@ public class RvSearchAdapter extends RecyclerView.Adapter<RvSearchAdapter.Sucurs
             mContext.get().startActivity(detail);
 
         });
-        vh.icon.setImageResource(current.isSucursal() ? R.drawable.pin1b : R.drawable.pin2b);
+        vh.icon.setImageResource(current.isSucursal() ? R.drawable.pin1 : R.drawable.pin2);
         vh.title.setText(current.getNombre());
         vh.subTitle.setText(current.getDomicilio());
     }

@@ -2,49 +2,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/tab_height"
+    android:foreground="?android:attr/selectableItemBackground"
     android:gravity="center"
-    android:orientation="horizontal"
-    android:padding="2dp"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
     tools:context="com.jrodiz.sucursalesbr.ui.frag.IconFragment">
 
-    <ImageView
-        android:id="@+id/img_sucursal"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/icon_height"
-        android:layout_weight="1"
-        android:src="@drawable/pin1b" />
-
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="5"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <ImageView
+            android:id="@+id/img_sucursal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/icon_height"
+            android:layout_weight="1"
+            android:src="@drawable/pin1" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="vertical">
 
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="2dp"
-            android:paddingRight="6dp"
-            android:gravity="center_vertical"
-            android:paddingTop="6dp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="2dp"
+                android:gravity="center_vertical"
+                android:paddingRight="6dp"
+                android:paddingTop="6dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/subtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="2dp"
-            android:paddingRight="6dp"
-            android:gravity="center_vertical"
-            android:paddingTop="6dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textStyle="italic" />
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="2dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:paddingRight="6dp"
+                android:paddingTop="6dp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
 
 
     </LinearLayout>
 
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="40dp"
+        android:background="@color/light_gray" />
+
+
 </LinearLayout>
+
+
+

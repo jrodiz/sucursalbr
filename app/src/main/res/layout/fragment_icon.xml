@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/icon_height"
             android:layout_weight="1"
-            android:src="@drawable/pin1b" />
+            android:src="@drawable/pin1" />
 
         <TextView
             android:layout_width="0dp"
@@ -44,7 +44,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/icon_height"
             android:layout_weight="1"
-            android:src="@drawable/pin2b" />
+            android:src="@drawable/pin2" />
 
         <TextView
             android:layout_width="0dp"
