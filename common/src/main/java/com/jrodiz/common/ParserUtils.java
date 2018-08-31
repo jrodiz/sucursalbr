@@ -1,7 +1,5 @@
-package com.jrodiz.sucursalesbr.utils;
+package com.jrodiz.common;
 
-import com.jrodiz.sucursalesbr.base.AppConstants;
-import com.jrodiz.sucursalesbr.base.AppUtils;
 
 public final class ParserUtils {
 
@@ -9,11 +7,11 @@ public final class ParserUtils {
     }
 
     public static double parseDouble(final String v) {
-        double d = AppConstants.INVALID_DOUBLE;
+        double d = Constants.INVALID_DOUBLE;
         try {
             d = Double.parseDouble(v);
         } catch (NumberFormatException e) {
-            AppUtils.handleThrowable(e);
+            e.printStackTrace();
         }
         return d;
     }

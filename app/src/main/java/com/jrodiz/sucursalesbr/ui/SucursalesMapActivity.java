@@ -11,23 +11,20 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.transition.Fade;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.SlidingPaneLayout;
 import android.transition.ChangeBounds;
 import android.transition.Explode;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
@@ -40,13 +37,13 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.jrodiz.business.ctrl.LocationAwareCtrl;
+import com.jrodiz.business.ctrl.SucursalCtrl;
+import com.jrodiz.business.model.Sucursal;
+import com.jrodiz.common.Constants;
 import com.jrodiz.sucursalesbr.R;
-import com.jrodiz.sucursalesbr.base.AppConstants;
-import com.jrodiz.sucursalesbr.ctrl.LocationAwareCtrl;
-import com.jrodiz.sucursalesbr.ctrl.SucursalCtrl;
-import com.jrodiz.sucursalesbr.obj.Sucursal;
+import com.jrodiz.sucursalesbr.AppConstants;
 import com.jrodiz.sucursalesbr.ui.custom.DetailsTransition;
-import com.jrodiz.sucursalesbr.ui.frag.ISucursalDrawer;
 import com.jrodiz.sucursalesbr.ui.frag.IconFragment;
 import com.jrodiz.sucursalesbr.ui.frag.SucursalFragment;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
@@ -108,12 +105,6 @@ public class SucursalesMapActivity extends FragmentActivity
             @Override
             public void onChanged(@Nullable Location location) {
                 mUserLocation = location;
-                if (mMap != null) {
-                    MarkerOptions markerOpts = new MarkerOptions()
-                            .position(new LatLng(mUserLocation.getLatitude(), mUserLocation.getLongitude()))
-                            .title("User");
-                    mMap.addMarker(markerOpts);
-                }
             }
         });
         mController.requestSucursales();
@@ -258,8 +249,8 @@ public class SucursalesMapActivity extends FragmentActivity
                     ImageView cajeroIcon = iconFrag.getIcon(false);
                     fragment.setSharedElementReturnTransition(new DetailsTransition());
 
-                    transition.addSharedElement(sucursalIcon, AppConstants.SUCURSAL);
-                    transition.addSharedElement(cajeroIcon, AppConstants.CAJERO);
+                    transition.addSharedElement(sucursalIcon, Constants.SUCURSAL);
+                    transition.addSharedElement(cajeroIcon, Constants.CAJERO);
                     getWindow().setSharedElementEnterTransition(new ChangeBounds().setDuration(50000));
                     break;
                 }

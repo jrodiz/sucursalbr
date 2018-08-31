@@ -1,4 +1,4 @@
-package com.jrodiz.sucursalesbr.base;
+package com.jrodiz.business;
 
 public interface IRptContext<T> {
 

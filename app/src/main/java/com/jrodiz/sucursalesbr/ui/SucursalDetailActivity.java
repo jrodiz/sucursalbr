@@ -1,17 +1,13 @@
 package com.jrodiz.sucursalesbr.ui;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
+import com.jrodiz.business.model.Sucursal;
 import com.jrodiz.sucursalesbr.R;
-import com.jrodiz.sucursalesbr.base.AppConstants;
-import com.jrodiz.sucursalesbr.obj.Sucursal;
+import com.jrodiz.sucursalesbr.AppConstants;
 import com.jrodiz.sucursalesbr.ui.frag.SucursalFragment;
 import com.jrodiz.sucursalesbr.utils.ContextUtils;
 

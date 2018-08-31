@@ -1,7 +1,7 @@
-package com.jrodiz.sucursalesbr.ws.manager;
+package com.jrodiz.business.ws.manager;
 
-import com.jrodiz.sucursalesbr.base.AppConstants;
-import com.jrodiz.sucursalesbr.base.AppUtils;
+import com.jrodiz.business.utils.AppUtils;
+import com.jrodiz.common.Constants;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -40,6 +40,6 @@ public class GenericHandler<T> implements Callback<T> {
     public void onFailure(Call<T> call, Throwable t) {
 
         AppUtils.handleThrowable(t);
-        mDataListener.onDataError(AppConstants.Errors.DEFAULT_ERR_CODE, t);
+        mDataListener.onDataError(Constants.Errors.DEFAULT_ERR_CODE, t);
     }
 }

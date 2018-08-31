@@ -1,11 +1,10 @@
-package com.jrodiz.sucursalesbr.ctrl;
+package com.jrodiz.business.ctrl;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.location.Location;
-import android.support.annotation.NonNull;
 import android.support.annotation.RequiresPermission;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -17,13 +16,9 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.jrodiz.sucursalesbr.base.AppConstants;
-import com.jrodiz.sucursalesbr.base.AppUtils;
-import com.jrodiz.sucursalesbr.base.IRptContext;
+import com.jrodiz.business.utils.AppUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;

@@ -1,14 +1,12 @@
-package com.jrodiz.sucursalesbr.ws.manager;
+package com.jrodiz.business.ws.manager;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.jrodiz.sucursalesbr.base.AppConstants;
-import com.jrodiz.sucursalesbr.base.BrSucursales;
-import com.jrodiz.sucursalesbr.ctrl.SucursalCtrl;
-import com.jrodiz.sucursalesbr.db.AppLocalDb;
-import com.jrodiz.sucursalesbr.obj.Sucursal;
-import com.readystatesoftware.chuck.ChuckInterceptor;
+import com.jrodiz.business.model.Sucursal;
+import com.jrodiz.business.model.User;
+import com.jrodiz.business.ws.BrInterface;
+import com.jrodiz.common.Constants;
 
 import java.util.List;
 
@@ -27,7 +25,7 @@ public enum RetrofitManager {
     }
 
     public static class RequestException extends Exception {
-        RequestException(@Nullable final String eMsg) {
+        public RequestException(@Nullable final String eMsg) {
             super(eMsg);
         }
     }
@@ -37,12 +35,11 @@ public enum RetrofitManager {
         if (mService == null) {
 
             OkHttpClient client = new OkHttpClient.Builder()
-                    .addInterceptor(new ChuckInterceptor(BrSucursales.getContext()))
                     .build();
 
             Retrofit retrofit = new Retrofit.Builder()
                     .client(client)
-                    .baseUrl(AppConstants.Ws.BASE_ENDPOINT)
+                    .baseUrl(Constants.Ws.BASE_ENDPOINT)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
@@ -53,6 +50,10 @@ public enum RetrofitManager {
 
     public void requestSucursales(@NonNull final GenericHandler<List<Sucursal>> handler) {
         Call<List<Sucursal>> call = getConnection().getSucursales();
+        call.enqueue(handler);
+    }
+    public void requestLogin(@NonNull final GenericHandler<User> handler) {
+        Call<User> call = getConnection().getLogin();
         call.enqueue(handler);
     }
 }

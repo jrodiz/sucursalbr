@@ -1,7 +1,5 @@
 package com.jrodiz.sucursalesbr.ui.frag;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
@@ -11,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.jrodiz.sucursalesbr.R;
-
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class IconFragment extends Fragment {

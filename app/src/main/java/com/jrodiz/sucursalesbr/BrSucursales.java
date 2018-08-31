@@ -1,9 +1,7 @@
-package com.jrodiz.sucursalesbr.base;
+package com.jrodiz.sucursalesbr;
 
 import android.app.Application;
 import android.content.Context;
-
-import com.jrodiz.sucursalesbr.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 

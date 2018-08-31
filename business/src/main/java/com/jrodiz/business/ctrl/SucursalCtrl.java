@@ -1,4 +1,4 @@
-package com.jrodiz.sucursalesbr.ctrl;
+package com.jrodiz.business.ctrl;
 
 import android.app.Activity;
 import android.arch.lifecycle.LifecycleOwner;
@@ -11,12 +11,11 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.annimon.stream.Stream;
-import com.jrodiz.sucursalesbr.base.AppUtils;
-import com.jrodiz.sucursalesbr.base.BaseController;
-import com.jrodiz.sucursalesbr.base.IRptContext;
-import com.jrodiz.sucursalesbr.obj.Sucursal;
-import com.jrodiz.sucursalesbr.ws.manager.GenericHandler;
-import com.jrodiz.sucursalesbr.ws.manager.RetrofitManager;
+import com.jrodiz.business.IRptContext;
+import com.jrodiz.business.model.Sucursal;
+import com.jrodiz.business.ws.manager.GenericHandler;
+import com.jrodiz.business.ws.manager.RetrofitManager;
+import com.jrodiz.common.Constants;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,10 +23,10 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.DoubleStream;
 
 import static com.annimon.stream.Collectors.toList;
-import static com.jrodiz.sucursalesbr.base.BaseController.DbOpt.UNKNOWN;
+import static com.jrodiz.business.ctrl.BaseController.DbOpt.GET_ALL_SUCURSAL;
+import static com.jrodiz.business.ctrl.BaseController.DbOpt.INSERT_SUCURSALS;
 
 public class SucursalCtrl extends BaseController implements Observer<List<Sucursal>> {
 
@@ -50,10 +49,9 @@ public class SucursalCtrl extends BaseController implements Observer<List<Sucurs
     }
 
 
-
     public void requestSucursales() {
         if (!isNetworkConnected(mListener.getViewContext())) {
-            AppUtils.printNoNetwork(mListener.getViewContext());
+            mListener.onSucursalesFail(Constants.Errors.NO_NETWORK, new RetrofitManager.RequestException("No network"));
             return;
         }
         RetrofitManager.get().requestSucursales(mHandler);
@@ -63,7 +61,7 @@ public class SucursalCtrl extends BaseController implements Observer<List<Sucurs
             new GenericHandler.IRptCallHandler<List<Sucursal>>() {
                 @Override
                 public void onDataSuccess(List<Sucursal> data) {
-                    new ShortDbTask().execute(DbOpt.INSERT_SUCURSALS.setData(data));
+                    new ShortDbTask().execute(INSERT_SUCURSALS.setData(data));
 
                     if (mListener.isAlive()) {
                         mListener.onSucursalesSuccess(data);
@@ -79,7 +77,7 @@ public class SucursalCtrl extends BaseController implements Observer<List<Sucurs
             });
 
     public void requestDbSucursales() {
-        new ShortDbTask().execute(DbOpt.GET_ALL_SUCURSAL);
+        new ShortDbTask().execute(GET_ALL_SUCURSAL);
     }
 
 
@@ -139,6 +137,7 @@ public class SucursalCtrl extends BaseController implements Observer<List<Sucurs
             }
         }
     }
+
     private List<Sucursal> orderByCloserTo(@Nullable final Location userLocation,
                                            @NonNull final List<Sucursal> list) {
         if (userLocation == null) return list;

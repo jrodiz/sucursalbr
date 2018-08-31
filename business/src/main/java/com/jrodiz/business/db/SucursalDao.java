@@ -1,4 +1,4 @@
-package com.jrodiz.sucursalesbr.db;
+package com.jrodiz.business.db;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -7,7 +7,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
-import com.jrodiz.sucursalesbr.obj.Sucursal;
+import com.jrodiz.business.model.Sucursal;
 
 import java.util.List;
 

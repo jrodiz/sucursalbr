@@ -1,7 +1,6 @@
 package com.jrodiz.sucursalesbr.ui.frag;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,10 +16,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.jrodiz.business.model.Sucursal;
+import com.jrodiz.common.Constants;
 import com.jrodiz.sucursalesbr.R;
-import com.jrodiz.sucursalesbr.base.AppConstants;
-import com.jrodiz.sucursalesbr.base.AppUtils;
-import com.jrodiz.sucursalesbr.obj.Sucursal;
+import com.jrodiz.sucursalesbr.AppConstants;
 import com.jrodiz.sucursalesbr.ui.OnFragmentInteractionListener;
 import com.jrodiz.sucursalesbr.utils.ContextUtils;
 
@@ -67,8 +66,8 @@ public class SucursalFragment extends Fragment implements ISucursalDrawer {
         mImgSucursal = v.findViewById(R.id.image);
         mIcon = v.findViewById(R.id.icon);
 
-        ViewCompat.setTransitionName(mIcon, AppConstants.SUCURSAL);
-        ViewCompat.setTransitionName(mIcon, AppConstants.CAJERO);
+        ViewCompat.setTransitionName(mIcon, Constants.SUCURSAL);
+        ViewCompat.setTransitionName(mIcon, Constants.CAJERO);
 
         mTvDir = v.findViewById(R.id.dir);
         mTvPhone = v.findViewById(R.id.tel_portal);

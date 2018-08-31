@@ -1,11 +1,11 @@
-package com.jrodiz.sucursalesbr.base;
+package com.jrodiz.business.ctrl;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.support.annotation.NonNull;
 
-import com.jrodiz.sucursalesbr.db.AppLocalDb;
-import com.jrodiz.sucursalesbr.db.SucursalDao;
+import com.jrodiz.business.db.AppLocalDb;
+import com.jrodiz.business.db.SucursalDao;
 
 public class BaseController {
 

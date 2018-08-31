@@ -1,9 +1,8 @@
-package com.jrodiz.sucursalesbr.obj;
+package com.jrodiz.business.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-import android.location.Location;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
@@ -11,8 +10,8 @@ import android.support.annotation.NonNull;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.jrodiz.sucursalesbr.base.AppConstants;
-import com.jrodiz.sucursalesbr.utils.ParserUtils;
+import com.jrodiz.common.Constants;
+import com.jrodiz.common.ParserUtils;
 
 @Entity
 public class Sucursal implements Parcelable {
@@ -311,7 +310,7 @@ public class Sucursal implements Parcelable {
     }
 
     public boolean isSucursal() {
-        return AppConstants.SUCURSAL.equalsIgnoreCase(getTipo().trim());
+        return Constants.SUCURSAL.equalsIgnoreCase(getTipo().trim());
     }
 
     @Override

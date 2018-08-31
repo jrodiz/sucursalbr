@@ -1,4 +1,4 @@
-package com.jrodiz.sucursalesbr.db;
+package com.jrodiz.business.db;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
@@ -6,10 +6,10 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.jrodiz.sucursalesbr.base.AppConstants;
-import com.jrodiz.sucursalesbr.obj.Sucursal;
+import com.jrodiz.business.model.Sucursal;
+import com.jrodiz.common.Constants;
 
-@Database(entities = {Sucursal.class}, version = AppConstants.Db.DB_VERSION, exportSchema = false)
+@Database(entities = {Sucursal.class}, version = Constants.Db.DB_VERSION, exportSchema = false)
 public abstract class AppLocalDb extends RoomDatabase {
 
     public abstract SucursalDao getSucursalDao();
@@ -21,7 +21,7 @@ public abstract class AppLocalDb extends RoomDatabase {
             LOCAL_DATABASE = Room.<AppLocalDb>databaseBuilder(
                     appContext.getApplicationContext(),
                     AppLocalDb.class,
-                    AppConstants.Db.DB_NAME
+                    Constants.Db.DB_NAME
             ).fallbackToDestructiveMigration().build();
         }
         return LOCAL_DATABASE;
